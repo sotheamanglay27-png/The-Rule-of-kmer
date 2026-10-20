@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="km">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>RULE KHMER SURVIVAL 3D</title>
+<meta name="theme-color" content="#07101c">
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#06101b;color:#f7f4ec;font-family:system-ui,"Noto Sans Khmer",sans-serif;overflow-x:hidden}
+:root{--gold:#ffc85b;--orange:#e98218;--glass:rgba(5,13,25,.78);--edge:rgba(255,198,77,.42)}
+#scene{position:fixed;inset:0;z-index:0}#scene canvas{display:block;width:100%;height:100%}
+.vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(2,7,15,.78),rgba(2,7,15,.15) 55%,rgba(2,7,15,.18)),linear-gradient(0deg,rgba(2,7,15,.8),transparent 48%,rgba(2,7,15,.3)}
+main{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px clamp(16px,4vw,48px);gap:12px}
+.logo{font-weight:1000;letter-spacing:1.5px;color:#ffe2a0;text-shadow:0 2px 12px #000;font-size:clamp(15px,2.5vw,23px)}.logo span{color:#ff9c26}
+.nav{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--edge);border-radius:9px;padding:11px 16px;font-weight:850;cursor:pointer;color:#fff;background:rgba(9,20,34,.82);backdrop-filter:blur(8px)}.btn.gold{color:#251500;background:linear-gradient(#ffe28a,#ed981a);border-color:#fff0b0;box-shadow:0 4px 20px #ff9b2633}.btn:active{transform:scale(.98)}
+.hero{padding:clamp(24px,6vh,72px) clamp(18px,6vw,82px) 20px;max-width:760px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-size:12px;font-weight:900;letter-spacing:3px;color:var(--gold)}h1{font-size:clamp(42px,8vw,88px);line-height:.88;margin:14px 0 20px;font-weight:1000;letter-spacing:-2px;text-shadow:0 6px 24px #000}.title2{color:#ffc85b;text-shadow:0 0 22px #f68a21}
+.lead{max-width:530px;color:#e0e6ee;line-height:1.7;font-size:clamp(14px,2vw,17px);text-shadow:0 2px 10px #000}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.hint{font-size:12px;color:#c4ceda;margin-top:18px}
+.bottom{display:grid;grid-template-columns:1.15fr 1fr;gap:12px;padding:18px clamp(14px,4vw,48px) 26px}
+.glass{background:var(--glass);border:1px solid var(--edge);border-radius:15px;backdrop-filter:blur(13px);box-shadow:0 12px 35px #0005;padding:15px}
+.glass h2{font-size:14px;letter-spacing:1px;color:var(--gold);margin:0 0 12px}
+.skinrow{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px}.skin{flex:1;min-width:105px;border:1px solid #536174;border-radius:11px;padding:10px;background:#0b1b2b;cursor:pointer;text-align:center}.skin.active{border:2px solid var(--gold);background:#372716}.skin .emoji{font-size:34px;display:block;margin-bottom:6px}.skin b{font-size:12px;display:block}.skin small{font-size:10px;color:#bdc9d6}
+.stats{display:flex;gap:8px;flex-wrap:wrap}.stat{padding:9px 11px;background:#102237;border-radius:8px;font-size:12px;flex:1;min-width:95px}.stat strong{display:block;color:#ffe2a0;font-size:16px}
+#toast{position:fixed;z-index:10;bottom:18px;left:50%;transform:translateX(-50%);max-width:90vw;padding:12px 16px;border-radius:10px;background:#081523;border:1px solid var(--gold);box-shadow:0 8px 25px #0008;display:none;text-align:center;font-size:13px}
+.modal{position:fixed;z-index:20;inset:0;display:none;place-items:center;background:#000b;padding:18px}.modal.open{display:grid}.dialog{width:min(430px,100%);padding:22px;border:1px solid var(--gold);border-radius:16px;background:#0a1728}.dialog h2{color:var(--gold);margin-top:0}.dialog input{width:100%;padding:13px;border-radius:8px;border:1px solid #526174;background:#101f31;color:white;margin:8px 0 15px}
+@media(max-width:720px){header{align-items:flex-start;flex-direction:column}.hero{min-height:48vh;padding-top:28px}.bottom{grid-template-columns:1fr}.vignette{background:linear-gradient(90deg,rgba(2,7,15,.72),rgba(2,7,15,.22)),linear-gradient(0deg,rgba(2,7,15,.9),transparent 70%)}.skin{min-width:94px;padding:8px}.skin .emoji{font-size:29px}}
+</style>
+</head>
+<body>
+<div id="scene" aria-label="3D Angkor temple scene"></div><div class="vignette"></div>
+<main>
+<header><div class="logo">👑 RULE <span>KHMER</span> SURVIVAL</div><div class="nav"><button class="btn" onclick="openLogin()">ចូលប្រើ / Guest</button><button class="btn" onclick="toggleMotion()">⟳ បង្វិល 3D</button></div></header>
+<section class="hero">
+<div class="eyebrow">CAMBODIA • SURVIVE • FIGHT</div>
+<h1>RULE KHMER<br><span class="title2">SURVIVAL</span></h1>
+<p class="lead">ចូលទៅកាន់ពិភព 3D បែបខ្មែរ។ ជ្រើសរើស Skin របស់អ្នក មើលប្រាសាទអង្គរវត្ត និងត្រៀមខ្លួនសម្រាប់ការផ្សងព្រេង។ អូសលើផ្ទៃ 3D ដើម្បីបង្វិលទិដ្ឋភាព។</p>
+<div class="actions"><button class="btn gold" onclick="startDemo()">▶ START GAME</button><button class="btn" onclick="document.getElementById('skins').scrollIntoView({behavior:'smooth'})">👕 ជ្រើសរើស Skin</button></div>
+<div class="hint">✦ 3D interactive demo · អូសដើម្បីបង្វិល · ចុច START ដើម្បីសាកល្បង</div>
+</section>
+<section class="bottom">
+<div class="glass" id="skins"><h2>👕 SELECT YOUR SKIN</h2><div class="skinrow">
+<div class="skin active" data-name="Khmer Warrior" data-color="#c98238" onclick="pickSkin(this)"><span class="emoji">🛡️</span><b>Khmer Warrior</b><small>CLASSIC</small></div>
+<div class="skin" data-name="Angkor Guardian" data-color="#e4b43c" onclick="pickSkin(this)"><span class="emoji">👑</span><b>Angkor Guardian</b><small>ROYAL</small></div>
+<div class="skin" data-name="Dragon Rider" data-color="#5aa9e6" onclick="pickSkin(this)"><span class="emoji">🐉</span><b>Dragon Rider</b><small>LEGEND</small></div>
+<div class="skin" data-name="Jungle Scout" data-color="#58a56d" onclick="pickSkin(this)"><span class="emoji">🎒</span><b>Jungle Scout</b><small>EXPLORER</small></div>
+</div></div>
+<div class="glass"><h2>🗺️ BATTLE STATUS</h2><div class="stats"><div class="stat">PLAYER<strong id="playerLabel">Guest Player</strong></div><div class="stat">SKIN<strong id="skinLabel">Khmer Warrior</strong></div><div class="stat">MAP<strong>Angkor 3D</strong></div></div><p style="color:#bdc9d6;font-size:12px;line-height:1.6;margin-bottom:0">គំរូ 3D នេះបង្ហាញទេសភាព និងការជ្រើស Skin ប៉ុណ្ណោះ។ វាមិនទាន់ភ្ជាប់ទៅម៉ាស៊ីនហ្គេម ROS ឬមានប្រព័ន្ធ Battle Royale ពិតប្រាកដទេ។</p></div>
+</section>
+</main>
+<div id="toast"></div>
+<div class="modal" id="loginModal"><div class="dialog"><button class="btn" style="float:right;padding:6px 10px" onclick="closeLogin()">✕</button><h2>ចូលជា Guest</h2><label for="playerName">ឈ្មោះអ្នកលេង</label><input id="playerName" placeholder="ឧ. KhmerPlayer" maxlength="24"><button class="btn gold" onclick="guestLogin()">ចូលលេងជា Guest</button><p style="font-size:12px;color:#bdc9d6">នេះជាគំរូសាកល្បង។ សូមកុំបញ្ចូលពាក្យសម្ងាត់គណនីពិត។</p></div></div>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script>
+let scene,camera,renderer,templeGroup,playerGroup,water,autoRotate=true,dragging=false,lastX=0,lastY=0;
+function init3D(){
+ const host=document.getElementById('scene');
+ if(!window.THREE){host.innerHTML='<div style="color:white;padding:20px">សូមភ្ជាប់អ៊ីនធឺណិត ដើម្បីផ្ទុក 3D scene។</div>';return}
+ scene=new THREE.Scene();scene.background=new THREE.Color(0x87b9e5);scene.fog=new THREE.Fog(0x87b9e5,30,100);
+ camera=new THREE.PerspectiveCamera(48,innerWidth/innerHeight,.1,250);camera.position.set(17,13,25);camera.lookAt(0,3,0);
+ renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});renderer.setPixelRatio(Math.min(devicePixelRatio,1.7));renderer.setSize(innerWidth,innerHeight);renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;host.appendChild(renderer.domElement);
+ scene.add(new THREE.HemisphereLight(0xd9efff,0x4a3420,2.0));
+ const sun=new THREE.DirectionalLight(0xffd49a,3.2);sun.position.set(-15,24,12);sun.castShadow=true;scene.add(sun);
+ const mat=(color,roughness=.85)=>new THREE.MeshStandardMaterial({color,roughness});
+ const ground=new THREE.Mesh(new THREE.PlaneGeometry(180,180),mat(0x47754b));ground.rotation.x=-Math.PI/2;ground.position.y=-.25;ground.receiveShadow=true;scene.add(ground);
+ // lake around temple
+ water=new THREE.Mesh(new THREE.CircleGeometry(17,64),new THREE.MeshStandardMaterial({color:0x287e9c,roughness:.25,metalness:.25,transparent:true,opacity:.88}));water.rotation.x=-Math.PI/2;water.position.y=-.05;water.scale.set(1.2,.72,1);scene.add(water);
+ // temple base + stepped towers
+ templeGroup=new THREE.Group();scene.add(templeGroup);
+ const stone=mat(0x9a8569), darkStone=mat(0x665643), gold=mat(0xd6a54c), shadow=mat(0x4b4134);
+ function box(w,h,d,x,y,z,m){let o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y+h/2,z);o.castShadow=true;o.receiveShadow=true;templeGroup.add(o);return o}
+ box(15,.8,9,0,.15,0,stone);box(12,.7,7,0,.9,0,darkStone);box(10,.6,5.5,0,1.55,0,stone);
+ // central and four towers
+ function tower(x,z,scale=1){
+  let g=new THREE.Group();g.position.set(x,2.05,z);g.scale.setScalar(scale);templeGroup.add(g);
+  let b=new THREE.Mesh(new THREE.CylinderGeometry(1.25,.95,1.5,8),stone);b.position.y=.75;b.castShadow=true;g.add(b);
+  for(let i=0;i<5;i++){let r=1.02-i*.16;let c=new THREE.Mesh(new THREE.CylinderGeometry(r*.78,r,0.72,8),i%2?darkStone:stone);c.position.y=1.55+i*.56;c.castShadow=true;g.add(c)}
+  let tip=new THREE.Mesh(new THREE.ConeGeometry(.29,.9,8),gold);tip.position.y=4.85;tip.castShadow=true;g.add(tip);
+  let ring=new THREE.Mesh(new THREE.TorusGeometry(.48,.09,6,8),gold);ring.rotation.x=Math.PI/2;ring.position.y=2.3;g.add(ring)
+ }
+ tower(0,0,1.1);tower(-3.4,-1.8,.72);tower(3.4,-1.8,.72);tower(-3.4,1.8,.72);tower(3.4,1.8,.72);
+ // temple pillars and entrance
+ for(let x=-5;x<=5;x+=1.25){box(.22,1.6,.22,x,1.6,3.2,shadow);box(.22,1.6,.22,x,1.6,-3.2,shadow)}
+ box(2.5,1.8,.7,0,1.7,4,stone);box(1.2,2.5,.8,0,1.7,4.3,darkStone);
+ // palm trees around perimeter
+ for(let i=0;i<42;i++){
+  let a=i*2.399, r=10+(i%7)*2.2, x=Math.cos(a)*r,z=Math.sin(a)*r;
+  let trunk=new THREE.Mesh(new THREE.CylinderGeometry(.13,.22,2.6,6),mat(0x79502c));trunk.position.set(x,1.05,z);trunk.rotation.z=Math.sin(a)*.12;trunk.castShadow=true;scene.add(trunk);
+  for(let j=0;j<6;j++){let leaf=new THREE.Mesh(new THREE.ConeGeometry(.22,2.3,5),mat(j%2?0x28613a:0x38784a));leaf.position.set(x+Math.cos(j*Math.PI/3)*.75,2.3,z+Math.sin(j*Math.PI/3)*.75);leaf.rotation.z=Math.cos(j*Math.PI/3)*.9;leaf.rotation.x=Math.sin(j*Math.PI/3)*.7;leaf.castShadow=true;scene.add(leaf)}
+ }
+ // stone path
+ for(let i=0;i<8;i++){let p=new THREE.Mesh(new THREE.BoxGeometry(1.1,.12,.7),mat(0xb6a080));p.position.set(0,.1,5+i*1.15);p.castShadow=true;scene.add(p)}
+ // stylized player
+ playerGroup=new THREE.Group();scene.add(playerGroup);playerGroup.position.set(-7,0,5);
+ let body=new THREE.Mesh(new THREE.CapsuleGeometry(.45,.95,4,8),mat(0x283c4b));body.position.y=1.25;body.castShadow=true;playerGroup.add(body);
+ let head=new THREE.Mesh(new THREE.SphereGeometry(.32,16,12),mat(0xc68c62));head.position.y=2.15;head.castShadow=true;playerGroup.add(head);
+ let pack=new THREE.Mesh(new THREE.BoxGeometry(.65,.8,.3),mat(0x9b6330));pack.position.set(0,1.35,-.4);pack.castShadow=true;playerGroup.add(pack);
+ for(let x of [-.23,.23]){let leg=new THREE.Mesh(new THREE.BoxGeometry(.2,.75,.24),mat(0x1c2731));leg.position.set(x,.42,0);leg.castShadow=true;playerGroup.add(leg)}
+ // distant mountains
+ for(let i=0;i<18;i++){let m=new THREE.Mesh(new THREE.ConeGeometry(5+Math.random()*5,8+Math.random()*8,5),mat(i%2?0x6388a0:0x7b9ca9));m.position.set((i-9)*10,-1,-35-Math.random()*15);scene.add(m)}
+ // stars / birds-ish flying dragons as tiny silhouettes
+ for(let i=0;i<9;i++){let d=new THREE.Group();let bm=new THREE.Mesh(new THREE.SphereGeometry(.18,8,6),mat(0x293747));d.add(bm);let wingmat=mat(0x34475a);for(let s of [-1,1]){let w=new THREE.Mesh(new THREE.ConeGeometry(.16,1.25,4),wingmat);w.position.set(s*.48,.06,0);w.rotation.z=s*-1.0;d.add(w)}d.position.set(-22+i*5,8+Math.sin(i)*3,-15-i%4*4);scene.add(d)}
+ // glowing sun
+ let sunball=new THREE.Mesh(new THREE.SphereGeometry(1.3,24,16),new THREE.MeshBasicMaterial({color:0xffcf76}));sunball.position.set(16,14,-28);scene.add(sunball);
+ animate();
+}
+function animate(){requestAnimationFrame(animate);if(templeGroup&&autoRotate&&!dragging)templeGroup.rotation.y+=.0017;if(water)water.material.opacity=.82+Math.sin(Date.now()*.001)*.06;if(playerGroup)playerGroup.position.y=Math.sin(Date.now()*.002)*.04;renderer.render(scene,camera)}
+function resize(){if(camera&&renderer){camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)}}
+window.addEventListener('resize',resize);
+document.addEventListener('pointerdown',e=>{if(e.target.closest('button,.glass,.modal'))return;dragging=true;lastX=e.clientX;lastY=e.clientY});
+document.addEventListener('pointermove',e=>{if(!dragging||!templeGroup)return;let dx=e.clientX-lastX,dy=e.clientY-lastY;templeGroup.rotation.y+=dx*.006;camera.position.y=Math.max(5,Math.min(22,camera.position.y-dy*.025));camera.lookAt(0,3,0);lastX=e.clientX;lastY=e.clientY});
+document.addEventListener('pointerup',()=>dragging=false);
+function toast(s){let t=document.getElementById('toast');t.textContent=s;t.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display='none',3600)}
+let selectedSkin='Khmer Warrior';
+function pickSkin(el){document.querySelectorAll('.skin').forEach(s=>s.classList.remove('active'));el.classList.add('active');selectedSkin=el.dataset.name;document.getElementById('skinLabel').textContent=selectedSkin;if(playerGroup&&playerGroup.children[0])playerGroup.children[0].material.color.set(el.dataset.color);toast('បានជ្រើស Skin: '+selectedSkin)}
+function startDemo(){toast('🎮 Demo ចាប់ផ្ដើម! Skin: '+selectedSkin+' — នេះជាគំរូ 3D មិនទាន់ភ្ជាប់ទៅហ្គេមពិតទេ។');if(camera){camera.position.set(13,10,21);camera.lookAt(0,3,0)}}
+function toggleMotion(){autoRotate=!autoRotate;toast(autoRotate?'បើកការបង្វិល 3D':'ផ្អាកការបង្វិល 3D')}
+function openLogin(){document.getElementById('loginModal').classList.add('open')}
+function closeLogin(){document.getElementById('loginModal').classList.remove('open')}
+function guestLogin(){let n=document.getElementById('playerName').value.trim()||'Guest Player';document.getElementById('playerLabel').textContent=n;closeLogin();toast('ស្វាគមន៍ '+n+'! អ្នកបានចូលជា Guest demo។')}
+init3D();
+</script>
+</body></html>
